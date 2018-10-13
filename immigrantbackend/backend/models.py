@@ -18,12 +18,15 @@ class ImmigrantProfile (models.Model):
 class Community (models.Model):
     group_name = models.CharField(max_length=255)
     language_spoken = models.ForeignKey('Language', on_delete = models.SET_NULL, blank = True, null = True)
+    location = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.group_name
 
 class Language (models.Model):
     abbreviation = models.CharField(max_length=255)
     name = models.CharField(max_length=255)
 
-# Mikey Dev
 class Post(models.Model):
 
     owner = models.ForeignKey('auth.User', related_name='post', on_delete=models.CASCADE)
@@ -34,14 +37,12 @@ class Post(models.Model):
 def one_day_from_now():
     return timezone.now() + timezone.timedelta(days=1)
 
-# Mikey Dev
 class Event(models.Model):
 
     owner = models.ForeignKey('auth.User', related_name='event', on_delete=models.CASCADE)
     community = models.ForeignKey('Community', on_delete = models.CASCADE)
-    name = models.CharField(max_length=100, default = "")
+    name = models.CharField(max_length=255)
     date = models.DateTimeField(auto_now_add=False, default=one_day_from_now)
-
 
 
 class Comment(models.Model):
@@ -51,8 +52,6 @@ class Comment(models.Model):
 
     text = models.TextField()
 
-
-# Mikey Dev
 class LanguageConfig(models.Model):
 
     owner = models.ForeignKey('auth.User', related_name='language_config', on_delete=models.CASCADE)

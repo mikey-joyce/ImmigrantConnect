@@ -12,9 +12,14 @@ import "./App.css";
 //Routing libs
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
+//Components
+import Navbar from './Pages/Navbar';
+
 //Routing Pages
 import InitialPage from "./Pages/InitialPage";
-import Navbar from './Pages/Navbar';
+import CommunitiesPage from "./Pages/CommunitiesPage";
+import ViewCommunityPage from './Pages/CommunityPage';
+import SignInPage from './Pages/SignIn';
 
 //Redux
 import { Provider } from "react-redux";
@@ -37,8 +42,14 @@ class App extends Component {
         <Provider store={store}>
           <Router>
             <div>
-            <Navbar />
-              <Route path="/" exact component={InitialPage} />
+              <Navbar />
+
+              <div>
+                <Route path="/" exact component={InitialPage} />
+                <Route path = "/communities" component = {CommunitiesPage} />
+                <Route path = "/view-community" component = {ViewCommunityPage} />
+                <Route path = "/sign-in" component = {SignInPage} />
+              </div>
             </div>
           </Router>
         </Provider>
