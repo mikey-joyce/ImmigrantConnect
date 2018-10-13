@@ -31,7 +31,6 @@ class Post(models.Model):
     title = models.CharField(max_length=300)
     text = models.TextField()
 
-
 def one_day_from_now():
     return timezone.now() + timezone.timedelta(days=1)
 
