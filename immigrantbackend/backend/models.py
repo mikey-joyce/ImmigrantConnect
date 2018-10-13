@@ -14,21 +14,32 @@ class ImmigrantProfile (models.Model):
     bio = models.TextField()
 
 class Community (models.Model):
+    group_name = models.CharField(max_length=255)
+    language_spoken = models.ForeignKey('Language', on_delete = models.SET_NULL, blank = True, null = True)
 
-    pass
+class Language (models.Model):
+    abbreviation = models.CharField(max_length=255)
+    name = models.CharField(max_length=255)
 
+# Mikey Dev
 class Post(models.Model):
 
     pass
 
+# Mikey Dev
 class Event(models.Model):
 
     pass
 
 class Comment(models.Model):
 
-    pass
+    owner = models.ForeignKey('auth.User', related_name = 'comment', on_delete=models.CASCADE)
+    community = models.ForeignKey('Community', on_delete = models.CASCADE)
 
+    text = models.TextField()
+
+
+# Mikey Dev
 class LanguageConfig(models.Model):
 
     pass
