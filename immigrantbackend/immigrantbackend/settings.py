@@ -75,6 +75,12 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'immigrantbackend.wsgi.application'
 
+"""REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES':(
+        'rest_framework.authentication.BasicAuthentication',
+    )
+}"""
+
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
