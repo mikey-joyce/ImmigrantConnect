@@ -29,3 +29,25 @@ class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = ImmigrantProfile
         fields = ('id', 'owner', 'first_name', 'last_name', 'location', 'years_in_residence', 'country_of_origin', 'bio')
+
+
+
+class CommunitySerializer(serializers.ModelSerializer):
+
+	class Meta:
+		model = Community
+		fields = ('id', 'group_name', 'language_spoken')
+
+class PostSerializer(serializers.ModelSerializer):
+
+	class Meta:
+		model = Post
+		fields = ('id', 'owner', 'community', 'title', 'text')
+
+class EventSerializer(serializers.ModelSerializer):
+
+	class Meta:
+		model = Event
+		fields = ('id', 'owner', 'community', 'date')
+
+

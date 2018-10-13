@@ -5,7 +5,7 @@ from django.shortcuts import render
 from rest_framework import viewsets
 from rest_framework.response import Response
 
-from backend.serializers import UserSerializer, ProfileSerializer
+from backend.serializers import UserSerializer, ProfileSerializer, CommunitySerializer, PostSerializer, EventSerializer
 
 #Import models
 from .models import ImmigrantProfile
@@ -13,7 +13,7 @@ from .models import ImmigrantProfile
 # Create your views here.
 
 def index(request):
-    html = "<p>Hell world</p>"
+    html = "<p>Hello World!</p>"
     return HttpResponse(html)
 
 class UserViewSet(viewsets.ViewSet):
@@ -41,3 +41,27 @@ class ProfileViewSet(viewsets.ModelViewSet):
 
     def perform_create(self, serializer):
         serializer.save()
+
+class CommunityViewSet(viewsets.ModelViewSet):
+    queryset = Community.objects.all()
+    serializer_class = CommunitySerializer
+
+    def perform_create(self, serializer):
+    	serializer.save()
+
+class PostViewSet(viewsets.ModelViewSet):
+	queryset = Post.objects.all()
+	serializer_class = PostSerializer
+
+	def perform_create(self, serializer):
+		serializer.save()
+
+
+class EventViewSet(viewsets.ModelViewSet):
+	queryset = Event.objects.all()
+	serializer_class = EventSerializer
+
+	def perform_create(self, serializer):
+		serializer.save()
+
+
