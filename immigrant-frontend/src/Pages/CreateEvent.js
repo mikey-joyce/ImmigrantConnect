@@ -1,46 +1,59 @@
 import React, { Component } from "react";
 
 class CreateEvent extends Component {
+
+  constructor(props) {
+    super(props);
+
+  }
+
   render() {
     return (
-      <div>
+      <div className = "container-fluid">
         <form>
-          <label>
-            Event Name:
+          <div className = "form-group">
+            <label for = "event-title">
+              Event Name:
+            </label>
+
             <input
               type="text"
               placeholder="Add Event Name"
+              id = "event-title"
               name="event-title"
               className="form-control"
             />
-          </label>
-          <label>
-            Event Location:
+
+          </div>
+
+          <div className = "form-group">
+            <label>
+              Event Location:
+
+            </label>
             <input
               type="text"
               placeholder="Add Event Location"
               name="event-location"
               className="form-control"
             />
-          </label>
-          <label>
-            Event Description:
-            <input
-              type="text"
-              placeholder="Add Event Description"
-              name="event-description"
-              className="form-control"
-            />
-          </label>
-          <label>
-            Event Date:
+          </div>
+
+          <div className = "form-group">
+            <label>
+              Event Date:
+
+            </label>
+
             <input
               type="date"
               name="event-date"
               min="2018-10-14"
               className="form-control"
             />
-          </label>
+
+
+          </div>
           <button type="submit" value="Submit" className="btn btn-primary">
             Submit
           </button>

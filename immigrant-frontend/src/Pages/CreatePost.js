@@ -1,27 +1,44 @@
 import React, { Component } from "react";
 
 class CreatePost extends Component {
+
+  constructor(props) {
+    super(props);
+  }
+
   render() {
     return (
-      <div>
+      <div className = "container-fluid">
         <form>
-          <label>
-            Post Title:
+
+          <div className = "form-group">
+            <label>
+              Post Title:
+
+            </label>
+
             <input
               type="text"
               placeholder="Add a title"
               className="form-control"
               name="post-title"
             />
-          </label>
-          <label>
-            <input
+          </div>
+
+          <div className = "form-group">
+            <label>
+              Contents:
+            </label>
+
+            <textarea
               type="text"
               placeholder="Add post contents"
               className="form-control"
               name="post-contents"
             />
-          </label>
+
+          </div>
+
           <button
             type="submit"
             value="Submit"
