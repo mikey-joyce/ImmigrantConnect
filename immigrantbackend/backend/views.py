@@ -8,9 +8,10 @@ from rest_framework.decorators import action
 from rest_framework.response import Response
 
 from backend.serializers import UserSerializer, ProfileSerializer, CommunitySerializer, PostSerializer, EventSerializer
+from backend.serializers import CommentSerializer, LanguageConfigSerializer
 
 #Import models
-from .models import ImmigrantProfile, Community, Post, Event
+from .models import ImmigrantProfile, Community, Post, Event, Comment, LanguageConfig
 
 # Create your views here.
 
@@ -68,7 +69,6 @@ class CommunityViewSet(viewsets.ModelViewSet):
 
         return Response(serializer.data)
 
-
     @action(detail=True)
     def events(self, request, pk = None):
         community = self.get_object()
@@ -83,8 +83,7 @@ class PostViewSet(viewsets.ModelViewSet):
 	serializer_class = PostSerializer
 
 	def perform_create(self, serializer):
-		serializer.save()
-
+	       serializer.save()
 
 class EventViewSet(viewsets.ModelViewSet):
 	queryset = Event.objects.all()
@@ -92,3 +91,17 @@ class EventViewSet(viewsets.ModelViewSet):
 
 	def perform_create(self, serializer):
 		serializer.save()
+
+class CommentViewSet(viewsets.ModelViewSet):
+	queryset = Comment.objects.all()
+	serializer_class = CommunitySerializer
+
+	def perform_create(self, serializer):
+		serializer.save()
+
+class LanguageConfigViewSet(viewsets.ModelViewSet):
+	queryset = LanguageConfig.objects.all()
+	serializer_class = LanguageConfigSerializer
+
+	def perform_create(self, serializer):
+	       serializer.save()
