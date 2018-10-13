@@ -31,6 +31,10 @@ class DropdownButton extends Component {
             </select>
           </label>
         </form>
+        <button
+          type="submit"
+          value="Submit"
+          className="btn btn-primary">Submit</button>
       </div>
     );
   }
