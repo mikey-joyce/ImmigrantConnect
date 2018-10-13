@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import SignIn from "./SignIn";
 import InitialPage from "./InitialPage";
+import Communities from "./Communities";
 
 class Navbar extends Component {
   render() {
@@ -16,9 +17,13 @@ class Navbar extends Component {
             <button className="btn btn-dark btn pull-right buttonRight">
               <Link to="/SignIn">Sign In</Link>
             </button>
+            <button className="btn btn-dark btn pull-right buttonRight">
+              <Link to="/Communities">Communities</Link>
+            </button>
           </nav>
           <Route path="/InitialPage" component={InitialPage} />
           <Route path="/SignIn" component={SignIn} />
+          <Route path="/Communities" component={Communities} />
         </div>
       </Router>
     );
