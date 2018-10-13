@@ -12,3 +12,23 @@ class ImmigrantProfile (models.Model):
     country_of_origin = models.CharField(max_length=255)
 
     bio = models.TextField()
+
+class Community (models.Model):
+
+    pass
+
+class Post(models.Model):
+
+    pass
+
+class Event(models.Model):
+
+    pass
+
+class Comment(models.Model):
+
+    pass
+
+class LanguageConfig(models.Model):
+
+    pass
