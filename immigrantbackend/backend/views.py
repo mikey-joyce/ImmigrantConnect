@@ -69,7 +69,6 @@ class CommunityViewSet(viewsets.ModelViewSet):
 
         return Response(serializer.data)
 
-
     @action(detail=True)
     def events(self, request, pk = None):
         community = self.get_object()
@@ -84,8 +83,7 @@ class PostViewSet(viewsets.ModelViewSet):
 	serializer_class = PostSerializer
 
 	def perform_create(self, serializer):
-		serializer.save()
-
+	       serializer.save()
 
 class EventViewSet(viewsets.ModelViewSet):
 	queryset = Event.objects.all()
@@ -95,21 +93,15 @@ class EventViewSet(viewsets.ModelViewSet):
 		serializer.save()
 
 class CommentViewSet(viewsets.ModelViewSet):
-	queryset = Comment.objects.all()
-	serializer_class = CommunitySerializer
+    queryset = Comment.objects.all()
+    serializer_class = CommunitySerializer
 
     def perform_create(self, serializer):
-    	serializer.save()
+        serializer.save()
 
 class LanguageConfigViewSet(viewsets.ModelViewSet):
 	queryset = LanguageConfig.objects.all()
 	serializer_class = LanguageConfigSerializer
 
 	def perform_create(self, serializer):
-		serializer.save()
-
-
-
-
-
-
+	       serializer.save()

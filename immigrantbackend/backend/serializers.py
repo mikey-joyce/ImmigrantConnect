@@ -19,7 +19,6 @@ from .models import ImmigrantProfile, Community, Event, Post, LanguageConfig, Co
 
 class UserSerializer(serializers.ModelSerializer):
 
-
     class Meta:
         model = User
         fields =('id', 'username')
@@ -52,8 +51,7 @@ class CommentSerializer(serializers.ModelSerializer):
 
 	class Meta:
 		model = Comment
-		fields('id', 'owner', 'community', 'text')
-
+		fields = ('id', 'owner', 'community', 'text')
 
 class LanguageConfigSerializer(serializers.ModelSerializer):
 
