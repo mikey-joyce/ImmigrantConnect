@@ -21,7 +21,7 @@ import CommunitiesPage from "./Pages/CommunitiesPage";
 import ViewCommunityPage from './Containers/ViewCommunityPageContainer';
 import SignInPage from './Pages/SignIn';
 import ProfilePage from './Containers/ProfilePageContainer';
-import EditProfilePage from './Pages/EditProfileField';
+import EditProfilePage from './Containers/EditProfilePageContainer';
 
 //Redux
 import { Provider } from "react-redux";
