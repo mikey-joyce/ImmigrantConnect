@@ -18,7 +18,7 @@ import Navbar from './Pages/Navbar';
 //Routing Pages
 import InitialPage from "./Pages/InitialPage";
 import CommunitiesPage from "./Pages/CommunitiesPage";
-import ViewCommunityPage from './Pages/CommunityPage';
+import ViewCommunityPage from './Containers/ViewCommunityPageContainer';
 import SignInPage from './Pages/SignIn';
 import Profile from './Pages/Profile';
 

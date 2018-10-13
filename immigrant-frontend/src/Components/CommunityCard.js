@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import CommunityPage from './CommunityPage';
-import { Link } from "react-router-dom";
+import {Redirect } from "react-router-dom";
 
 //models
 import models from '../Models';
@@ -9,15 +8,34 @@ let {Community} = models;
 
 class CommunityCard extends Component {
 
-  state = {
-    communityId: 1
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      view_community: false
+    }
+
+    this.viewCommunity = this.viewCommunity.bind(this);
+
   }
 
   viewCommunity() {
-    
+
+    this.props.selectCommunity(this.props.community);
+
+    this.setState({
+      ...this.state,
+      view_community: true
+    })
+
   }
 
   render() {
+
+    if (this.state.view_community) {
+        return (<Redirect push to = "/view-community"></Redirect>)
+    }
+
     return (
         <div className="card">
           <img className="card-img-top">
@@ -28,10 +46,8 @@ class CommunityCard extends Component {
             </h5>
             <p className="card-text">
             </p>
-            <button className="btn btn-light">
-              <Link to="/view-community">
+            <button onClick = {this.viewCommunity} className="btn btn-light">
                 Go to community
-              </Link>
             </button>
           </div>
         </div>

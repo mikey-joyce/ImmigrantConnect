@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import CommunityCard from './CommunityCard';
+import CommunityCard from '../Containers/CommunityCardContainer';
 
 //libs
 import _ from 'lodash';
