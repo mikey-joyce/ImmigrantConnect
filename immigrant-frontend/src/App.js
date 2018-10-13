@@ -28,12 +28,19 @@ import { store } from "./Store";
 //Redux actions
 import { test } from "./Actions";
 
+//TESTING
+import ApiInterface from './Lib/ApiInterface';
+
 class App extends Component {
   constructor(props) {
     super(props);
 
     // For testing
     store.dispatch(test());
+
+    //more tests
+    ApiInterface.getCommunities();
+
   }
 
   render() {
