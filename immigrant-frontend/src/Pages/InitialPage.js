@@ -8,6 +8,7 @@ Displays the Initial Page of the application
 //import react
 import React, { Component } from "react";
 import DropdownButton from './DropdownButton';
+import Navbar from './Navbar';
 
 //styling
 import "./InitialPage.css";
@@ -20,7 +21,7 @@ class InitialPage extends Component {
 
   render() {
     return (
-      <div className="languageMenu">
+      <div>
       <DropdownButton />
       </div>
     );
