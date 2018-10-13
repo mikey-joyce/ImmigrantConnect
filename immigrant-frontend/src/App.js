@@ -40,7 +40,7 @@ class App extends Component {
     // For testing
     store.dispatch(test());
 
-    ApiInterface.getUser(3).then (function (user) {
+    ApiInterface.getUser(4).then (function (user) {
       store.dispatch(userLogin(user))
     })
 
