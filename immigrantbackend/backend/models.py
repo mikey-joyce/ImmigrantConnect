@@ -39,9 +39,7 @@ class Event(models.Model):
 
     owner = models.ForeignKey('auth.User', related_name='event', on_delete=models.CASCADE)
     community = models.ForeignKey('Community', on_delete = models.CASCADE)
-    name = models.CharField(max_length=100, default = "")
     date = models.DateTimeField(auto_now_add=False, default=one_day_from_now)
-
 
 
 class Comment(models.Model):
