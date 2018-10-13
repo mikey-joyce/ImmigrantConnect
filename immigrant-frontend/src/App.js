@@ -20,6 +20,7 @@ import InitialPage from "./Pages/InitialPage";
 import CommunitiesPage from "./Pages/CommunitiesPage";
 import ViewCommunityPage from './Pages/CommunityPage';
 import SignInPage from './Pages/SignIn';
+import Profile from './Pages/Profile';
 
 //Redux
 import { Provider } from "react-redux";
@@ -49,6 +50,7 @@ class App extends Component {
                 <Route path = "/communities" component = {CommunitiesPage} />
                 <Route path = "/view-community" component = {ViewCommunityPage} />
                 <Route path = "/sign-in" component = {SignInPage} />
+                <Route path = "/profile" component = {Profile} />
               </div>
             </div>
           </Router>
