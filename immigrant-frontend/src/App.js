@@ -38,11 +38,6 @@ class App extends Component {
     // For testing
     store.dispatch(test());
 
-    //more tests
-    ApiInterface.getCommunityEvents(2);
-
-    ApiInterface.getCommunityPosts(2);
-
   }
 
   render() {
