@@ -6,25 +6,25 @@ Displays the Initial Page of the application
 **/
 
 //import react
-import React, {Component} from 'react';
+import React, { Component } from "react";
+import DropdownButton from './DropdownButton';
 
 //styling
-import './InitialPage.css'
+import "./InitialPage.css";
 
 class InitialPage extends Component {
 
   constructor(props) {
-      super(props);
+    super(props);
   }
 
   render() {
     return (
-      <div className = "InitialPage">
-        <h1>The Initial Page</h1>
+      <div className="languageMenu">
+      <DropdownButton />
       </div>
-    )
+    );
   }
-
 }
 
-export default InitialPage
+export default InitialPage;
