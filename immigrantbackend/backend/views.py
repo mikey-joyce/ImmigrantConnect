@@ -10,7 +10,7 @@ from rest_framework.response import Response
 from backend.serializers import UserSerializer, ProfileSerializer, CommunitySerializer, PostSerializer, EventSerializer
 
 #Import models
-from .models import ImmigrantProfile
+from .models import ImmigrantProfile, Community, Post, Event
 
 # Create your views here.
 
@@ -59,6 +59,25 @@ class CommunityViewSet(viewsets.ModelViewSet):
     def perform_create(self, serializer):
     	serializer.save()
 
+    @action(detail=True)
+    def posts(self, request, pk = None):
+        community = self.get_object()
+        queryset = Post.objects.all()
+
+        serializer = PostSerializer(get_object_or_404(queryset, community = community))
+
+        return Response(serializer.data)
+
+
+    @action(detail=True)
+    def events(self, request, pk = None):
+        community = self.get_object()
+        queryset = Event.objects.all()
+
+        serializer = EventSerializer(get_object_or_404(queryset, community = community))
+
+        return Response(serializer.data)
+
 class PostViewSet(viewsets.ModelViewSet):
 	queryset = Post.objects.all()
 	serializer_class = PostSerializer
@@ -73,5 +92,3 @@ class EventViewSet(viewsets.ModelViewSet):
 
 	def perform_create(self, serializer):
 		serializer.save()
-
-

@@ -18,6 +18,10 @@ class ImmigrantProfile (models.Model):
 class Community (models.Model):
     group_name = models.CharField(max_length=255)
     language_spoken = models.ForeignKey('Language', on_delete = models.SET_NULL, blank = True, null = True)
+    location = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.group_name
 
 class Language (models.Model):
     abbreviation = models.CharField(max_length=255)
@@ -37,6 +41,7 @@ class Event(models.Model):
 
     owner = models.ForeignKey('auth.User', related_name='event', on_delete=models.CASCADE)
     community = models.ForeignKey('Community', on_delete = models.CASCADE)
+    name = models.CharField(max_length=255)
     date = models.DateTimeField(auto_now_add=False, default=one_day_from_now)
 
 
