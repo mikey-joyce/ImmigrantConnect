@@ -49,7 +49,6 @@ class Comment(models.Model):
 
     owner = models.ForeignKey('auth.User', related_name = 'comment', on_delete=models.CASCADE)
     community = models.ForeignKey('Community', on_delete = models.CASCADE)
-
     text = models.TextField()
 
 class LanguageConfig(models.Model):

@@ -6,7 +6,7 @@ from rest_framework import serializers
 from . import models
 
 from django.contrib.auth.models import User
-from .models import ImmigrantProfile, Community, Event, Post
+from .models import ImmigrantProfile, Community, Event, Post, LanguageConfig, Comment
 
 #class SnippetSerializer(serializers.ModelSerializer):
     #class Meta:
@@ -47,3 +47,16 @@ class EventSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Event
 		fields = ('id', 'owner', 'community','name', 'date')
+
+class CommentSerializer(serializers.ModelSerializer):
+
+	class Meta:
+		model = Comment
+		fields('id', 'owner', 'community', 'text')
+
+
+class LanguageConfigSerializer(serializers.ModelSerializer):
+
+	class Meta:
+		model = LanguageConfig
+		fields = ('id', 'owner', 'lang', 'welcome')
