@@ -1,5 +1,7 @@
 from django.db import models
 
+from django.utils import timezone
+
 # Create your models here.
 
 class ImmigrantProfile (models.Model):
@@ -29,12 +31,15 @@ class Post(models.Model):
     text = models.TextField()
 
 
+def one_day_from_now():
+    return timezone.now() + timezone.timedelta(days=1)
+
 # Mikey Dev
 class Event(models.Model):
 
     owner = models.ForeignKey('auth.User', related_name='event', on_delete=models.CASCADE)
-    name = models.CharField(max_length=100)
-    date = models.DateTimeField(auto_now_add=False, default=timezone.now+24)
+    name = models.CharField(max_length=100, default = "")
+    date = models.DateTimeField(auto_now_add=False, default=one_day_from_now)
 
 
 
@@ -50,5 +55,5 @@ class Comment(models.Model):
 class LanguageConfig(models.Model):
 
     owner = models.ForeignKey('auth.User', related_name='language_config', on_delete=models.CASCADE)
-    lang = models.CharField(max_length=100)
+    lang = models.ForeignKey('Language', on_delete = models.SET_NULL, blank = True, null = True)
     welcome = models.TextField()
