@@ -5,7 +5,7 @@ class CommunityPage extends Component {
   render() {
     return (
       <div>
-      <h5>Community Info</h5>
+        <h5>Community Info</h5>
       </div>
     );
   }
