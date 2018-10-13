@@ -9,23 +9,34 @@ class Profile extends Component {
           <tbody>
             <tr>
               <th scope="row">Name</th>
-              <td>Jose Martinez</td>
+              <td>
+                <input type="text" name="edit-name" className="form-control" />
+              </td>
             </tr>
             <tr>
               <th scope="row">Nationality</th>
-              <td>Spanish</td>
+              <td>
+                <input
+                  type="text"
+                  name="edit-nationality"
+                  className="form-control"
+                />
+              </td>
             </tr>
             <tr>
               <th scope="row">Tenure in Country</th>
-              <td>4 years</td>
+              <td>
+                <input type="number" name="edit-time" className="form-control" />
+              </td>
             </tr>
             <tr>
               <th scope="row">Bio</th>
-              <td>...</td>
+              <td>
+                <input type="text-area" name="edit-bio" className="form-control" />
+              </td>
             </tr>
           </tbody>
         </table>
-        <button className="btn btn-info"> Edit Profile </button>
       </div>
     );
   }
