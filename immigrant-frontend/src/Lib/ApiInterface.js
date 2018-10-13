@@ -179,6 +179,28 @@ class ApiInterface {
 
   }
 
+  static updateUserProfile(user_profile) {
+
+    let profile_endpoint = "/profiles/" + user_profile.id + "/";
+
+    let profile_promise = new Promise(function (resolve, reject) {
+      axios.put(endpoint + profile_endpoint, ImmigrantProfile.parse(user_profile).serialize())
+        .then (function (response) {
+          let raw_profile = response.data
+          let parsed_profile = ImmigrantProfile.parse(raw_profile)
+
+          console.log(parsed_profile);
+          resolve(parsed_profile)
+
+        }).catch (function (error) {
+          reject(error)
+        })
+    })
+
+    return profile_promise
+
+  }
+
 }
 
 export default ApiInterface
