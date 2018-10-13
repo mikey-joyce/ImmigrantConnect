@@ -1,43 +1,39 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 class DropdownButton extends Component {
   state = {
-    showLangMenu: false,
-    showLocMenu: false
-  }
+    langValue: "english",
+    locValue: "St. Louis"
+  };
 
-  showLangMenu = e => {
-    e.preventDefault();
-    this.setState(() => ( {showLangMenu: !this.state.showLangMenu} ))
+  handleChange(event) {
+    this.setState({ langValue: event.target.value });
   }
-
-  showLocMenu = e => {
-    e.preventDefault();
-    this.setState(() => ( {showLocMenu: !this.state.showLocMenu} ))
-  }
-
 
   render() {
-    const langMenu =<div className = "langButtons">
-    <button>English</button>
-    <button>Español</button>
-    <button>Bokansi</button>
-    </div>;
-
-    const locMenu =<div className = "locButtons">
-    <button>St. Louis</button>
-    </div>;
-
     return (
       <div>
-      <button onClick={this.showLangMenu}>Choose Language</button>
-      {this.state.showLangMenu ? langMenu : null}
-      <button onClick={this.showLocMenu}>Choose Location</button>
-      {this.state.showLocMenu ? locMenu : null}
+        <form className="dropdown">
+          <label>
+            Choose Language:
+            <select value={this.state.langValue}>
+              <option value="english">English</option>
+              <option value="spanish">Español</option>
+              <option value="bosnian">Bokanski</option>
+            </select>
+          </label>
+        </form>
+        <form className="dropdown">
+          <label>
+            Choose Location:
+            <select value={this.state.langValue}>
+              <option value="St. Louis"> St.Louis</option>
+            </select>
+          </label>
+        </form>
       </div>
     );
   }
-
 }
 
 export default DropdownButton;
