@@ -3,6 +3,8 @@ from django.contrib.auth.models import User
 from django.shortcuts import render, get_object_or_404
 
 from rest_framework import viewsets
+
+from rest_framework.decorators import action
 from rest_framework.response import Response
 
 from backend.serializers import UserSerializer, ProfileSerializer
@@ -32,6 +34,14 @@ class UserViewSet(viewsets.ViewSet):
         queryset = User.objects.all()
         user = get_object_or_404(queryset, pk=pk)
         serializer = UserSerializer(user)
+        return Response(serializer.data)
+
+    @action(detail=True)
+    def profile(self, request, pk = None):
+        user_queryset = User.objects.all()
+        user = get_object_or_404(user_queryset, pk=pk)
+        queryset = ImmigrantProfile.objects.all()
+        serializer = ProfileSerializer(get_object_or_404(queryset, owner = user))
         return Response(serializer.data)
 
 class ProfileViewSet(viewsets.ModelViewSet):
