@@ -24,12 +24,19 @@ class Language (models.Model):
 # Mikey Dev
 class Post(models.Model):
 
-    pass
+    owner = models.ForeignKey('auth.User', related_name='post', on_delete=models.CASCADE)
+    title = models.CharField(max_length=300)
+    text = models.TextField()
+
 
 # Mikey Dev
 class Event(models.Model):
 
-    pass
+    owner = models.ForeignKey('auth.User', related_name='event', on_delete=models.CASCADE)
+    name = models.CharField(max_length=100)
+    date = models.DateTimeField(auto_now_add=False, default=timezone.now+24)
+
+
 
 class Comment(models.Model):
 
@@ -42,4 +49,6 @@ class Comment(models.Model):
 # Mikey Dev
 class LanguageConfig(models.Model):
 
-    pass
+    owner = models.ForeignKey('auth.User', related_name='language_config', on_delete=models.CASCADE)
+    lang = models.CharField(max_length=100)
+    welcome = models.TextField()
