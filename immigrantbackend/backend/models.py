@@ -23,7 +23,6 @@ class Language (models.Model):
     abbreviation = models.CharField(max_length=255)
     name = models.CharField(max_length=255)
 
-# Mikey Dev
 class Post(models.Model):
 
     owner = models.ForeignKey('auth.User', related_name='post', on_delete=models.CASCADE)
@@ -34,7 +33,6 @@ class Post(models.Model):
 def one_day_from_now():
     return timezone.now() + timezone.timedelta(days=1)
 
-# Mikey Dev
 class Event(models.Model):
 
     owner = models.ForeignKey('auth.User', related_name='event', on_delete=models.CASCADE)
@@ -49,8 +47,6 @@ class Comment(models.Model):
 
     text = models.TextField()
 
-
-# Mikey Dev
 class LanguageConfig(models.Model):
 
     owner = models.ForeignKey('auth.User', related_name='language_config', on_delete=models.CASCADE)
