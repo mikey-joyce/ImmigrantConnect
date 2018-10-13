@@ -20,7 +20,7 @@ import InitialPage from "./Pages/InitialPage";
 import CommunitiesPage from "./Pages/CommunitiesPage";
 import ViewCommunityPage from './Containers/ViewCommunityPageContainer';
 import SignInPage from './Pages/SignIn';
-import Profile from './Pages/Profile';
+import ProfilePage from './Containers/ProfilePageContainer';
 
 //Redux
 import { Provider } from "react-redux";
@@ -39,7 +39,9 @@ class App extends Component {
     // For testing
     store.dispatch(test());
 
-
+    ApiInterface.getUser(3).then (function (user) {
+      store.dispatch(userLogin(user))
+    })
 
   }
 
@@ -56,7 +58,7 @@ class App extends Component {
                 <Route path = "/communities" component = {CommunitiesPage} />
                 <Route path = "/view-community" component = {ViewCommunityPage} />
                 <Route path = "/sign-in" component = {SignInPage} />
-                <Route path = "/profile" component = {Profile} />
+                <Route path = "/profile" component = {ProfilePage} />
               </div>
             </div>
           </Router>
