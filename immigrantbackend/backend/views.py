@@ -63,18 +63,18 @@ class CommunityViewSet(viewsets.ModelViewSet):
     @action(detail=True)
     def posts(self, request, pk = None):
         community = self.get_object()
-        queryset = Post.objects.all()
+        queryset = Post.objects.all().filter(community=community)
 
-        serializer = PostSerializer(get_object_or_404(queryset, community = community))
+        serializer = PostSerializer(queryset, many = True)
 
         return Response(serializer.data)
 
     @action(detail=True)
     def events(self, request, pk = None):
         community = self.get_object()
-        queryset = Event.objects.all()
+        queryset = Event.objects.all().filter(community = community)
 
-        serializer = EventSerializer(get_object_or_404(queryset, community = community))
+        serializer = EventSerializer(queryset, many = True)
 
         return Response(serializer.data)
 
