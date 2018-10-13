@@ -26,7 +26,7 @@ class DropdownButton extends Component {
         <form className="dropdown">
           <label>
             Choose Location:
-            <select value={this.state.langValue}>
+            <select value={this.state.locValue}>
               <option value="St. Louis"> St.Louis</option>
             </select>
           </label>
