@@ -1,6 +1,19 @@
 import React, { Component } from "react";
 
-class Profile extends Component {
+class EditProfile extends Component {
+
+  constructor(props) {
+    super(props);
+
+    
+
+
+  }
+
+  submitProfile() {
+
+  }
+
   render() {
     return (
       <div>
@@ -37,9 +50,10 @@ class Profile extends Component {
             </tr>
           </tbody>
         </table>
+        <button onClick = {this.submitProfile} className = "btn btn-success">Submit</button>
       </div>
     );
   }
 }
 
-export default Profile;
+export default EditProfile;

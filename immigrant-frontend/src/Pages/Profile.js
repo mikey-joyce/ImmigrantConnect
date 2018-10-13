@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 //routing
-import {Redirect} from 'react-router-dom';
+import {Redirect, Link} from 'react-router-dom';
 
 //API
 import ApiInterface from '../Lib/ApiInterface';
@@ -12,6 +12,7 @@ class Profile extends Component {
     super(props);
 
     this.loadUserProfile = this.loadUserProfile.bind(this);
+    this.editProfile = this.editProfile.bind(this);
 
     if (this.props.user_logged_in === false) {
       this.state = {
@@ -20,7 +21,8 @@ class Profile extends Component {
     }else {
       this.state = {
         valid: true,
-        user_profile: null
+        user_profile: null,
+        edit_profile: false
       }
 
       this.loadUserProfile();
@@ -28,6 +30,15 @@ class Profile extends Component {
     }
 
     console.log(props);
+  }
+
+  editProfile() {
+
+    this.setState({
+      ...this.state,
+      edit_profile: true
+    })
+
   }
 
   loadUserProfile() {
@@ -48,6 +59,12 @@ class Profile extends Component {
     if (this.state.valid === false) {
       return (
         <Redirect to = "/"></Redirect>
+      )
+    }
+
+    if (this.state.edit_profile === true) {
+      return (
+        <Redirect push to = "/edit-profile"></Redirect>
       )
     }
 
@@ -75,7 +92,7 @@ class Profile extends Component {
               </tr>
             </tbody>
           </table>
-          <button className="btn btn-info"> Edit Profile </button>
+          <button onClick = {this.editProfile} className="btn btn-info"> Edit Profile </button>
         </div>
       );
     }else {
