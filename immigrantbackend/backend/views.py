@@ -97,9 +97,9 @@ class EventViewSet(viewsets.ModelViewSet):
 class CommentViewSet(viewsets.ModelViewSet):
 	queryset = Comment.objects.all()
 	serializer_class = CommunitySerializer
-
-    def perform_create(self, serializer):
-    	serializer.save()
+	
+	def perform_create(self, serializer):
+		serializer.save()
 
 class LanguageConfigViewSet(viewsets.ModelViewSet):
 	queryset = LanguageConfig.objects.all()
