@@ -27,7 +27,7 @@ import { Provider } from "react-redux";
 import { store } from "./Store";
 
 //Redux actions
-import { test } from "./Actions";
+import { test, userLogin } from "./Actions";
 
 //TESTING
 import ApiInterface from './Lib/ApiInterface';
@@ -38,6 +38,8 @@ class App extends Component {
 
     // For testing
     store.dispatch(test());
+
+
 
   }
 

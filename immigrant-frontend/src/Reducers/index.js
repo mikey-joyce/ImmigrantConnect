@@ -10,9 +10,10 @@ root script that declares the root redux reducer for state handling
 import {combineReducers} from 'redux';
 
 //imported reducers
-import {selected_community} from './selected_community';
+import {selected_community,user} from './selected_community';
 
 //return the rootReducer
 export const rootReducer = combineReducers({
-  selected_community
+  selected_community,
+  user
 })

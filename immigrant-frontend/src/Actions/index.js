@@ -6,7 +6,7 @@ root script for declaring redux actions
 **/
 
 //import constants
-import {TEST,SELECT_COMMUNITY} from '../Constants';
+import {TEST,SELECT_COMMUNITY, USER_LOGIN} from '../Constants';
 
 export const test = () => ({
   type: TEST
@@ -17,5 +17,13 @@ export const selectCommunity = (selected_community) => ({
   type: SELECT_COMMUNITY,
   payload: {
     selected_community
+  }
+})
+
+//user actions
+export const userLogin = (selected_user) => ({
+  type: USER_LOGIN,
+  payload: {
+    selected_user
   }
 })

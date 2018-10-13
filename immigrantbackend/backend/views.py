@@ -15,10 +15,6 @@ from .models import ImmigrantProfile, Community, Post, Event, Comment, LanguageC
 
 # Create your views here.
 
-def index(request):
-    html = "<p>Hello World!</p>"
-    return HttpResponse(html)
-
 class UserViewSet(viewsets.ViewSet):
     """
     Simple viewset for listing or retrieving users
@@ -75,6 +71,15 @@ class CommunityViewSet(viewsets.ModelViewSet):
         queryset = Event.objects.all().filter(community = community)
 
         serializer = EventSerializer(queryset, many = True)
+
+        return Response(serializer.data)
+
+    @action(detail=True)
+    def comments(self, request, pk = None):
+        community = self.get_object()
+        queryset = Comment.objects.all().filter(community = community)
+
+        serializer = CommentSerializer(queryset, many = True)
 
         return Response(serializer.data)
 
