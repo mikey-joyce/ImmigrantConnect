@@ -44,6 +44,12 @@ class Navbar extends Component {
                 </Link>
               </li>
 
+              <li className="nav-item">
+                <Link to="/job-listings" className="nav-link">
+                  Jobs
+                </Link>
+              </li>
+
               {this.props.user_logged_in === true && (
                 <li className="nav-item">
                   <Link to="/profile" className="nav-link">

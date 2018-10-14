@@ -24,6 +24,7 @@ import ProfilePage from "./Containers/ProfilePageContainer";
 import EditProfilePage from "./Containers/EditProfilePageContainer";
 import CreatePostPage from "./Containers/CreatePostPageContainer";
 import CreateEventPage from "./Containers/CreateEventPageContainer";
+import JobListingsPage from "./Pages/JobListingsPage";
 
 //Redux
 import { Provider } from "react-redux";
@@ -43,6 +44,8 @@ class App extends Component {
 
     // For testing
     store.dispatch(test());
+
+    ApiInterface.getJobs();
   }
 
   login() {}
@@ -64,6 +67,7 @@ class App extends Component {
                 <Route path="/sign-in" component={SignInPage} />
                 <Route path="/profile" component={ProfilePage} />
                 <Route path="/edit-profile" component={EditProfilePage} />
+                <Route path="/job-listings" component={JobListingsPage} />
               </div>
             </div>
           </Router>
