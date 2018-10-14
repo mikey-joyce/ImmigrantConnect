@@ -29,7 +29,7 @@ class Post {
   serialize() {
 
     let {id, owner, community, title, text} = this;
-    
+
     return {id, owner, community, title, text};
 
   }
