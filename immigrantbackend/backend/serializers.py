@@ -6,7 +6,7 @@ from rest_framework import serializers
 from . import models
 
 from django.contrib.auth.models import User
-from .models import ImmigrantProfile, Community, Event, Post, LanguageConfig, Comment
+from .models import ImmigrantProfile, Community, Event, Post, LanguageConfig, Comment, JobPost
 
 #class SnippetSerializer(serializers.ModelSerializer):
     #class Meta:
@@ -58,3 +58,16 @@ class LanguageConfigSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = LanguageConfig
 		fields = ('id', 'owner', 'lang', 'welcome')
+
+class JobPostSerializer(serializers.ModelSerializer):
+
+	class Meta:
+		model = JobPost
+		fields = ('id', 'employer', 'description', 'email', 'phone')
+
+
+
+
+
+
+
