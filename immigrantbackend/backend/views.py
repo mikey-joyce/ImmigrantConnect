@@ -8,10 +8,10 @@ from rest_framework.decorators import action
 from rest_framework.response import Response
 
 from backend.serializers import UserSerializer, ProfileSerializer, CommunitySerializer, PostSerializer, EventSerializer
-from backend.serializers import CommentSerializer, LanguageConfigSerializer
+from backend.serializers import CommentSerializer, LanguageConfigSerializer, JobPostSerializer
 
 #Import models
-from .models import ImmigrantProfile, Community, Post, Event, Comment, LanguageConfig
+from .models import ImmigrantProfile, Community, Post, Event, Comment, LanguageConfig, JobPost
 
 # Create your views here.
 
@@ -110,3 +110,13 @@ class LanguageConfigViewSet(viewsets.ModelViewSet):
 
 	def perform_create(self, serializer):
 	       serializer.save()
+
+class JobPostViewSet(viewsets.ModelViewSet):
+	queryset = JobPost.objects.all()
+	serializer_class = JobPostSerializer
+
+	def perform_create(self, serializer):
+		serializer.save()
+
+
+

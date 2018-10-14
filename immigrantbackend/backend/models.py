@@ -61,3 +61,11 @@ class LanguageConfig(models.Model):
     owner = models.ForeignKey('auth.User', related_name='language_config', on_delete=models.CASCADE)
     lang = models.ForeignKey('Language', on_delete = models.SET_NULL, blank = True, null = True)
     welcome = models.TextField()
+
+class JobPost(models.Model):
+
+    employer = models.CharField(max_length=255)
+    description = models.TextField()
+    email = models.EmailField(max_length=255)
+    phone = models.CharField(max_length=12)
+
