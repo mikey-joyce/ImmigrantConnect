@@ -130,6 +130,8 @@ class CommunityPage extends Component {
       return <Redirect to="/communities" />;
     }
 
+    let { translations } = this.props;
+
     return (
       <div className="CommunityPage Page container-fluid">
         <br />
@@ -139,13 +141,19 @@ class CommunityPage extends Component {
 
         {this.props.user_logged_in && (
           <div className="btn-group btn-add-group" role="group">
-            <AddPost className="action-btn" />
-            <AddEvent className="action-btn" />
+            <AddPost
+              text={translations.community_view.add_post}
+              className="action-btn"
+            />
+            <AddEvent
+              text={translations.community_view.add_event_post}
+              className="action-btn"
+            />
           </div>
         )}
 
         {this.props.user_logged_in === false && (
-          <Link to="/sign-in">Sign In to Contribute to Group</Link>
+          <Link to="/sign-in">{translations.community_view.sign_in}</Link>
         )}
 
         <div className="cards">

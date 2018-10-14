@@ -1,14 +1,8 @@
 //react redux
 import { connect } from "react-redux";
 
-/**redux actions
-import {
-
-} from '../Actions';
-**/
-
 //component to bind
-import EditProfilePage from "../Pages/EditProfileField";
+import JobsPage from "../Pages/JobListingsPage";
 
 //language data
 import lang_data from "../Data/translations.json";
@@ -33,4 +27,4 @@ const mapDispatchToProps = dispatch => ({});
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(EditProfilePage);
+)(JobsPage);

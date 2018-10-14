@@ -1,5 +1,5 @@
 //react redux
-import {connect} from 'react-redux';
+import { connect } from "react-redux";
 
 /**redux actions
 import {
@@ -8,18 +8,30 @@ import {
 **/
 
 //component to bind
-import ProfilePage from '../Pages/Profile';
+import ProfilePage from "../Pages/Profile";
 
-const mapStateToProps = (state) => ({
-  user_logged_in: (state.user !== null),
-  user: state.user
-})
+//language data
+import lang_data from "../Data/translations.json";
 
-const mapDispatchToProps = (dispatch) => ({
+import _ from "lodash";
 
-})
+const get_translations = state => {
+  var lang = _.find(lang_data, function(lang) {
+    return lang.language == state.selected_language;
+  });
+
+  return lang.translations;
+};
+
+const mapStateToProps = state => ({
+  user_logged_in: state.user !== null,
+  user: state.user,
+  translations: get_translations(state)
+});
+
+const mapDispatchToProps = dispatch => ({});
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(ProfilePage)
+)(ProfilePage);

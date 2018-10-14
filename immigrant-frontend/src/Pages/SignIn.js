@@ -81,12 +81,14 @@ class SignIn extends Component {
       return <Redirect to="/communities" />;
     }
 
+    let { translations } = this.props;
+
     return (
       <div className="SignInPage">
         <div>
           <div className="form-group">
             <label>
-              Username:
+              {translations.signin.username}:
               <input
                 type="text"
                 name="username"
@@ -99,7 +101,7 @@ class SignIn extends Component {
           </div>
           <div className="form-group">
             <label>
-              Password:
+              {translations.signin.password}:
               <input
                 type="password"
                 name="password"
@@ -116,7 +118,7 @@ class SignIn extends Component {
             value="Submit"
             className="btn btn-primary"
           >
-            Submit
+            {translations.forms.submit}
           </button>
         </div>
       </div>

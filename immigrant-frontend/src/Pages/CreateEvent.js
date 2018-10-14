@@ -77,12 +77,16 @@ class CreateEvent extends Component {
       return <Redirect to="/view-community" />;
     }
 
+    let { translations } = this.props;
+
     if (this.state.valid) {
       return (
         <div className="container-fluid CreateEvent form">
           <div>
             <div className="form-group">
-              <label for="event-title">Event Name:</label>
+              <label for="event-title">
+                {translations.create_event.event_name}:
+              </label>
 
               <input
                 type="text"
@@ -96,7 +100,7 @@ class CreateEvent extends Component {
             </div>
 
             <div className="form-group">
-              <label>Event Date:</label>
+              <label>{translations.create_event.event_date}:</label>
 
               <input
                 type="datetime-local"
@@ -112,7 +116,7 @@ class CreateEvent extends Component {
               value="Submit"
               className="btn btn-primary"
             >
-              Submit
+              {translations.forms.submit}
             </button>
           </div>
         </div>

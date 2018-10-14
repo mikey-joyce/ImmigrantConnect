@@ -16,15 +16,15 @@ import { BrowserRouter as Router, Route, withRouter } from "react-router-dom";
 import Navbar from "./Containers/NavbarContainer";
 
 //Routing Pages
-import InitialPage from "./Pages/InitialPage";
-import CommunitiesPage from "./Pages/CommunitiesPage";
+import LanguageSelectPage from "./Containers/LanguageSelectContainer";
+import CommunitiesPage from "./Containers/CommunitiesPageContainer";
 import ViewCommunityPage from "./Containers/ViewCommunityPageContainer";
 import SignInPage from "./Containers/SignInContainer";
 import ProfilePage from "./Containers/ProfilePageContainer";
 import EditProfilePage from "./Containers/EditProfilePageContainer";
 import CreatePostPage from "./Containers/CreatePostPageContainer";
 import CreateEventPage from "./Containers/CreateEventPageContainer";
-import JobListingsPage from "./Pages/JobListingsPage";
+import JobListingsPage from "./Containers/JobsPageContainer";
 
 //Redux
 import { Provider } from "react-redux";
@@ -44,8 +44,6 @@ class App extends Component {
 
     // For testing
     store.dispatch(test());
-
-    ApiInterface.getJobs();
   }
 
   login() {}
@@ -59,7 +57,7 @@ class App extends Component {
               <NavbarWithRouter />
 
               <div>
-                <Route path="/" exact component={InitialPage} />
+                <Route path="/" exact component={LanguageSelectPage} />
                 <Route path="/communities" component={CommunitiesPage} />
                 <Route path="/view-community" component={ViewCommunityPage} />
                 <Route path="/create-event" component={CreateEventPage} />

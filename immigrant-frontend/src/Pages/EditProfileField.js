@@ -80,14 +80,16 @@ class EditProfile extends Component {
       return <Redirect to="/profile" />;
     }
 
+    let { translations } = this.props;
+
     if (this.state.user_profile !== null) {
       return (
         <div className="EditProfilePage Page">
-          <h2 className="display-2">My Profile</h2>
+          <h2 className="display-2">{translations.profile.welcome}</h2>
           <table className="table">
             <tbody>
               <tr>
-                <th scope="row">First Name</th>
+                <th scope="row">{translations.profile.first_name}</th>
                 <td>
                   <input
                     onChange={this.handleInputChange}
@@ -99,7 +101,7 @@ class EditProfile extends Component {
                 </td>
               </tr>
               <tr>
-                <th scope="row">Last Name</th>
+                <th scope="row">{translations.profile.last_name}</th>
                 <td>
                   <input
                     onChange={this.handleInputChange}
@@ -112,7 +114,7 @@ class EditProfile extends Component {
               </tr>
 
               <tr>
-                <th scope="row">Country of Origin</th>
+                <th scope="row">{translations.profile.country_of_origin}</th>
                 <td>
                   <input
                     onChange={this.handleInputChange}
@@ -125,7 +127,7 @@ class EditProfile extends Component {
               </tr>
 
               <tr>
-                <th scope="row">Tenure in Country</th>
+                <th scope="row">{translations.profile.tenure_in_country}</th>
                 <td>
                   <input
                     onChange={this.handleInputChange}
@@ -137,7 +139,7 @@ class EditProfile extends Component {
                 </td>
               </tr>
               <tr>
-                <th scope="row">Bio</th>
+                <th scope="row">{translations.profile.bio}</th>
                 <td>
                   <input
                     onChange={this.handleInputChange}
@@ -151,7 +153,7 @@ class EditProfile extends Component {
             </tbody>
           </table>
           <button onClick={this.submitProfile} className="btn btn-success">
-            Submit
+            {translations.forms.submit}
           </button>
         </div>
       );

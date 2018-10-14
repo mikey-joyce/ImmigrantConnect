@@ -31,6 +31,8 @@ class CommunityCard extends Component {
       return <Redirect push to="/view-community" />;
     }
 
+    let { translations } = this.props;
+
     return (
       <div>
         <div className="card">
@@ -39,7 +41,7 @@ class CommunityCard extends Component {
             <h5 className="card-title">{this.props.community.group_name}</h5>
             <p className="card-text" />
             <button onClick={this.viewCommunity} className="btn btn-light">
-              Go to community
+              {translations.communitiy_card.view_community}
             </button>
           </div>
         </div>

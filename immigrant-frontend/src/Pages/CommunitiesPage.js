@@ -57,10 +57,12 @@ class CommunitiesPage extends Component {
   }
 
   render() {
+    const { translations } = this.props;
+
     return (
       <div className="CommunityPage Page container-fluid">
         <br />
-        <h2 className="display-4">Communties Near You</h2>
+        <h2 className="display-4">{translations.communities.welcome}</h2>
         <br />
         {this.render_communities()}
       </div>

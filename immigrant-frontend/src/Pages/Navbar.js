@@ -19,6 +19,8 @@ class Navbar extends Component {
   }
 
   render() {
+    const { translations } = this.props;
+
     return (
       <div className="Navbar">
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -40,20 +42,20 @@ class Navbar extends Component {
             <ul className="navbar-nav mr-auto">
               <li className="nav-item">
                 <Link to="/communities" className="nav-link">
-                  Communities
+                  {translations.navbar.communities}
                 </Link>
               </li>
 
               <li className="nav-item">
                 <Link to="/job-listings" className="nav-link">
-                  Jobs
+                  {translations.navbar.jobs}
                 </Link>
               </li>
 
               {this.props.user_logged_in === true && (
                 <li className="nav-item">
                   <Link to="/profile" className="nav-link">
-                    Profile
+                    {translations.navbar.profile}
                   </Link>
                 </li>
               )}
@@ -62,13 +64,13 @@ class Navbar extends Component {
               <li className="nav-item pull-right">
                 {this.props.user_logged_in === false && (
                   <Link to="/sign-in" className="nav-link">
-                    Sign In
+                    {translations.navbar.signin}
                   </Link>
                 )}
 
                 {this.props.user_logged_in === true && (
                   <span onClick={this.logout} className="nav-link">
-                    Log out
+                    {translations.navbar.logout}
                   </span>
                 )}
               </li>

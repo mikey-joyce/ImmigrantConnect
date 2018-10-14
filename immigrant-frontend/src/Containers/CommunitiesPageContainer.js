@@ -1,14 +1,8 @@
 //react redux
 import { connect } from "react-redux";
 
-/**redux actions
-import {
-
-} from '../Actions';
-**/
-
 //component to bind
-import EditProfilePage from "../Pages/EditProfileField";
+import CommunitiesPage from "../Pages/CommunitiesPage";
 
 //language data
 import lang_data from "../Data/translations.json";
@@ -22,9 +16,8 @@ const get_translations = state => {
 
   return lang.translations;
 };
+
 const mapStateToProps = state => ({
-  user_logged_in: state.user !== null,
-  user: state.user,
   translations: get_translations(state)
 });
 
@@ -33,4 +26,4 @@ const mapDispatchToProps = dispatch => ({});
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(EditProfilePage);
+)(CommunitiesPage);

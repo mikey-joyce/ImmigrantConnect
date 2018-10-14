@@ -6,7 +6,13 @@ root script for declaring redux actions
 **/
 
 //import constants
-import { TEST, SELECT_COMMUNITY, USER_LOGIN, USER_LOGOUT } from "../Constants";
+import {
+  TEST,
+  SELECT_COMMUNITY,
+  USER_LOGIN,
+  USER_LOGOUT,
+  SELECT_LANGUAGE
+} from "../Constants";
 
 export const test = () => ({
   type: TEST
@@ -30,4 +36,11 @@ export const userLogin = selected_user => ({
 
 export const userLogout = () => ({
   type: USER_LOGOUT
+});
+
+export const selectLanguage = selected_language => ({
+  type: SELECT_LANGUAGE,
+  payload: {
+    selected_language
+  }
 });

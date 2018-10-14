@@ -57,10 +57,12 @@ class JobListingsPage extends Component {
   }
 
   render() {
+    let { translations } = this.props;
+
     return (
       <div className="JobListingsPage Page container-fluid">
         <br />
-        <h2 className="display-4">Jobs</h2>
+        <h2 className="display-4">{translations.jobs.welcome}</h2>
         <br />
 
         <div className="listings">{this.renderListings()}</div>

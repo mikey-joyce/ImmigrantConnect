@@ -13,6 +13,15 @@ class EventCard extends Component {
     super(props);
   }
 
+  toLocalTime(time) {
+    var date = moment(time);
+
+    var local_string =
+      date.format("MMMM Do YYYY") + " at " + date.format("h:mm A");
+
+    return local_string;
+  }
+
   render() {
     let { event } = this.props;
     console.log(event);
@@ -23,10 +32,7 @@ class EventCard extends Component {
           <div className="card-body">
             <h5 className="card-title">{event.name}</h5>
             <p className="card-text" />
-            <p className="card-text">
-              {moment(event.date).format("MMMM Do YYYY")} at{" "}
-              {moment(event.date).format("h:mm A")}
-            </p>
+            <p className="card-text">{this.toLocalTime(event.date)}</p>
           </div>
         </div>
         <br />

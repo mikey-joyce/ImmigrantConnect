@@ -1,32 +1,158 @@
 [
   {
-    "language": "ENG",
+    "language": "EN",
     "choice": "English",
     "translations": {
-      "submit": "Submit",
-      "welcome_message": "",
-      "navbar": [
-        "Home",
-        "Communities",
-        "Profile",
-        "Sign In"
-      ]
+      "navbar": {
+        "communities": "Communities",
+        "jobs": "Jobs",
+        "profile": "Profile",
+        "signin": "Sign In",
+        "logout": "Log Out"
+      },
+      "communities": {
+        "welcome": "Communities Near You"
+      },
+      "jobs": {
+        "welcome": "Jobs"
+      },
+      "communitiy_card": {
+        "view_community": "Go to community"
+      },
+      "community_view": {
+        "sign_in": "Sign in to Contribute to Group",
+        "add_post": "Add Post",
+        "add_event_post": "Add Event Post"
+      },
+      "signin": {
+        "username": "Username",
+        "password": "Password"
+      },
+      "profile": {
+        "welcome": "My Profile",
+        "name": "Name",
+        "first_name": "First Name",
+        "last_name": "Last Name",
+        "country_of_origin": "Country Of Origin",
+        "tenure_in_country": "Tenure in Country",
+        "bio": "Bio",
+        "edit": "Edit Profile"
+      },
+      "create_post": {
+        "post_title": "Post Title",
+        "post_contents": "Post Contents"
+      },
+      "create_event": {
+        "event_name": "Event Name",
+        "event_date": "Event Date"
+      },
+      "forms": {
+        "submit": "Submit"
+      }
     }
   },
   {
-    "language": "ESP",
+    "language": "ES",
     "choice": "Español",
     "translations": {
-      "submit": "",
-      "welcome_message": ""
+      "navbar": {
+        "communities": "Comunidades",
+        "jobs": "Trabajos",
+        "profile": "Perfil",
+        "signin": "Registrarse",
+        "logout": "Cerrar sesión"
+      },
+      "communities": {
+        "welcome": "Comunidades cerca de usted"
+      },
+      "jobs": {
+        "welcome": "Trabajos"
+      },
+      "communitiy_card": {
+        "view_community": "Ir a la comunidad"
+      },
+      "community_view": {
+        "sign_in": "Inicia sesión para contribuir al grupo",
+        "add_post": "Añadir publicación",
+        "add_event_post": "Añadir evento post"
+      },
+      "signin": {
+        "username": "Nombre de usuario",
+        "password": "Contraseña"
+      },
+      "profile": {
+        "welcome": "Mi perfil",
+        "name": "Nombre",
+        "first_name": "Nombre de pila",
+        "last_name": "Apellido",
+        "country_of_origin": "País de origen",
+        "tenure_in_country": "tiempo en el pais",
+        "bio": "biografía",
+        "edit": "Editar perfil"
+      },
+      "create_post": {
+        "post_title": "Título de la entrada",
+        "post_contents": "Contenido de la publicación"
+      },
+      "create_event": {
+        "event_name": "Título de la entrada",
+        "event_date": "Fecha del evento"
+      },
+      "forms": {
+        "submit": "Enviar"
+      }
     }
   },
   {
-    "language": "BS",
+    "language": "sr-BA",
     "choice": "Bosanski",
     "translations": {
-      "submit": "",
-      "welcome_message": ""
+      "navbar": {
+        "communities": "Zajednice",
+        "jobs": "Poslovi",
+        "profile": "Profil",
+        "signin": "Prijavite se",
+        "logout": "Odjaviti se"
+      },
+      "communities": {
+        "welcome": "Zajednice u blizini"
+      },
+      "jobs": {
+        "welcome": "Poslovi"
+      },
+      "communitiy_card": {
+        "view_community": "Idite u zajednicu"
+      },
+      "community_view": {
+        "sign_in": "Prijavite se da biste doprineli grupi",
+        "add_post": "Dodaj poruku",
+        "add_event_post": "Dodajte događaj događaja"
+      },
+      "signin": {
+        "username": "Korisničko ime",
+        "password": "Lozinka"
+      },
+      "profile": {
+        "welcome": "Moj profil",
+        "first_name": "Ime",
+        "last_name": "Prezime",
+        "name": "Ime",
+        "country_of_origin": "Country Of Origin",
+        "tenure_in_country": "Zemlja porijekla",
+        "bio": "Biografija",
+        "edit": "Uredi profil"
+      },
+      "create_post": {
+        "post_title": "Post Naslov",
+        "post_contents": "Post Opis"
+      },
+      "create_event": {
+        "event_name": "Ime događaja",
+        "event_date": "Datum događaja"
+      },
+      "forms": {
+        "submit": "Pošalji"
+      }
     }
   }
 ]

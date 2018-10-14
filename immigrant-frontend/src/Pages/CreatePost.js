@@ -71,12 +71,14 @@ class CreatePost extends Component {
       return <Redirect to="/view-community" />;
     }
 
+    let { translations } = this.props;
+
     if (this.state.valid) {
       return (
         <div className="container-fluid CreatePost form">
           <div>
             <div className="form-group">
-              <label>Post Title:</label>
+              <label>{translations.create_post.post_title}:</label>
 
               <input
                 type="text"
@@ -89,7 +91,7 @@ class CreatePost extends Component {
             </div>
 
             <div className="form-group">
-              <label>Contents:</label>
+              <label>{translations.create_post.post_contents}:</label>
 
               <textarea
                 type="text"
@@ -107,7 +109,7 @@ class CreatePost extends Component {
               onClick={this.submitPost}
               className="btn btn-primary"
             >
-              Submit
+              {translations.forms.submit}
             </button>
           </div>
         </div>
