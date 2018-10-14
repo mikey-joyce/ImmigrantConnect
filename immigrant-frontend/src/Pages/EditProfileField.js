@@ -51,7 +51,12 @@ class EditProfile extends Component {
 
       let {user_profile} = this.state;
 
-      console.log(user_profile)
+      ApiInterface.updateUserProfile(user_profile).then (function (user_profile) {
+        this.setState({
+            ...this.state,
+            profile_updated: true
+        });
+      }.bind(this));
 
   }
 
@@ -84,6 +89,12 @@ class EditProfile extends Component {
       )
     }
 
+    if (this.state.profile_updated === true) {
+      return (
+        <Redirect to = "/profile"></Redirect>
+      )
+    }
+
     if (this.state.user_profile !== null) {
       return (
         <div>
@@ -100,6 +111,14 @@ class EditProfile extends Component {
                 <th scope="row">Last Name</th>
                 <td>
                   <input onChange = {this.handleInputChange} type="text" value = {this.state.user_profile.last_name} name="last_name" className="form-control" />
+                </td>
+              </tr>
+
+
+              <tr>
+                <th scope="row">Country of Origin</th>
+                <td>
+                  <input onChange = {this.handleInputChange} type="text" value = {this.state.user_profile.country_of_origin} name="country_of_origin" className="form-control" />
                 </td>
               </tr>
 

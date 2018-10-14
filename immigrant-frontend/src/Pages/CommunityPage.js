@@ -34,6 +34,9 @@ class CommunityPage extends Component {
     this.renderPosts = this.renderPosts.bind(this);
     this.renderEvents = this.renderEvents.bind(this);
 
+    this.addPost = this.addPost.bind(this);
+    this.addEvent = this.addEvent.bind(this);
+
     if (this.props.community_selected === false) {
       this.state = {
         valid: false
@@ -122,6 +125,24 @@ class CommunityPage extends Component {
 
   }
 
+  addEvent() {
+
+    this.setState({
+      ...this.state,
+      addEvent: true
+    })
+
+  }
+
+  addPost() {
+
+    this.setState({
+      ...this.state,
+      addPost: true
+    })
+
+  }
+
   render() {
 
     if (this.state.valid === false) {
@@ -141,7 +162,6 @@ class CommunityPage extends Component {
         <div className = "cards">
           {this.renderEvents()}
           {this.renderPosts()}
-
         </div>
 
       </div>

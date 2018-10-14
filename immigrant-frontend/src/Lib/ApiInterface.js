@@ -83,6 +83,50 @@ class ApiInterface {
 
   }
 
+  static createEvent(event) {
+
+    let events_endpoint = "/events/";
+
+    var events_promise = new Promise(function (resolve, reject) {
+      axios.post(endpoint + events_endpoint, Event.parse(event).serialize())
+        .then (function (response) {
+          var raw_event = response.data;
+
+          var parsed_event = Event.parse(raw_event);
+
+          resolve(parsed_event)
+
+        }).catch (function (error) {
+          reject(error)
+        })
+    })
+
+    return events_promise;
+
+  }
+
+  static createPost(post) {
+
+    let posts_endpoint = "/posts/";
+
+    var posts_promise = new Promise(function (resolve, reject) {
+      axios.post(endpoint + posts_endpoint, Post.parse(post).serialize())
+        .then (function (response) {
+          var raw_post = response.data;
+
+          var parsed_post = Post.parse(raw_post);
+
+          resolve(parsed_post)
+
+        }).catch (function (error) {
+          reject(error)
+        })
+    })
+
+    return posts_promise;
+
+  }
+
   static getCommunityEvents(community_id) {
 
     let community_events_endpoint = "/communities/" + community_id + "/events" + "?format=json";
@@ -176,6 +220,28 @@ class ApiInterface {
     })
 
     return user_profile_promise;
+
+  }
+
+  static updateUserProfile(user_profile) {
+
+    let profile_endpoint = "/profiles/" + user_profile.id + "/";
+
+    let profile_promise = new Promise(function (resolve, reject) {
+      axios.put(endpoint + profile_endpoint, ImmigrantProfile.parse(user_profile).serialize())
+        .then (function (response) {
+          let raw_profile = response.data
+          let parsed_profile = ImmigrantProfile.parse(raw_profile)
+
+          console.log(parsed_profile);
+          resolve(parsed_profile)
+
+        }).catch (function (error) {
+          reject(error)
+        })
+    })
+
+    return profile_promise
 
   }
 

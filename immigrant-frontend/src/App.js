@@ -22,6 +22,9 @@ import ViewCommunityPage from './Containers/ViewCommunityPageContainer';
 import SignInPage from './Pages/SignIn';
 import ProfilePage from './Containers/ProfilePageContainer';
 import EditProfilePage from './Containers/EditProfilePageContainer';
+import CreatePostPage from './Containers/CreatePostPageContainer';
+import CreateEventPage from './Containers/CreateEventPageContainer';
+
 
 //Redux
 import { Provider } from "react-redux";
@@ -40,7 +43,7 @@ class App extends Component {
     // For testing
     store.dispatch(test());
 
-    ApiInterface.getUser(3).then (function (user) {
+    ApiInterface.getUser(4).then (function (user) {
       store.dispatch(userLogin(user))
     })
 
@@ -58,6 +61,8 @@ class App extends Component {
                 <Route path="/" exact component={InitialPage} />
                 <Route path = "/communities" component = {CommunitiesPage} />
                 <Route path = "/view-community" component = {ViewCommunityPage} />
+                <Route path = "/create-event" component = {CreateEventPage} />
+                <Route path = "/create-post" component = {CreatePostPage} />
                 <Route path = "/sign-in" component = {SignInPage} />
                 <Route path = "/profile" component = {ProfilePage} />
                 <Route path = "/edit-profile" component = {EditProfilePage} />
