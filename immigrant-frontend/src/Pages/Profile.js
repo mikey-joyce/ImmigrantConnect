@@ -1,13 +1,12 @@
 import React, { Component } from "react";
 
 //routing
-import {Redirect, Link} from 'react-router-dom';
+import { Redirect, Link } from "react-router-dom";
 
 //API
-import ApiInterface from '../Lib/ApiInterface';
+import ApiInterface from "../Lib/ApiInterface";
 
 class Profile extends Component {
-
   constructor(props) {
     super(props);
 
@@ -17,66 +16,59 @@ class Profile extends Component {
     if (this.props.user_logged_in === false) {
       this.state = {
         valid: false
-      }
-    }else {
+      };
+    } else {
       this.state = {
         valid: true,
         user_profile: null,
         edit_profile: false
-      }
+      };
 
       this.loadUserProfile();
-
     }
 
     console.log(props);
   }
 
   editProfile() {
-
     this.setState({
       ...this.state,
       edit_profile: true
-    })
-
+    });
   }
 
   loadUserProfile() {
-
-    ApiInterface.getUserProfile(this.props.user.id).then (function (user_profile) {
-
-      this.setState({
-        ...this.state,
-        user_profile
-      })
-
-    }.bind(this))
-
+    ApiInterface.getUserProfile(this.props.user.id).then(
+      function(user_profile) {
+        this.setState({
+          ...this.state,
+          user_profile
+        });
+      }.bind(this)
+    );
   }
 
   render() {
-
     if (this.state.valid === false) {
-      return (
-        <Redirect to = "/"></Redirect>
-      )
+      return <Redirect to="/" />;
     }
 
     if (this.state.edit_profile === true) {
-      return (
-        <Redirect push to = "/edit-profile"></Redirect>
-      )
+      return <Redirect push to="/edit-profile" />;
     }
 
     if (this.state.user_profile !== null) {
       return (
-        <div>
+        <div className="ProfilePage Page">
           <h2 className="display-2">My Profile</h2>
           <table className="table">
             <tbody>
               <tr>
                 <th scope="row">Name</th>
-                <td>{this.state.user_profile.first_name} {this.state.user_profile.last_name}</td>
+                <td>
+                  {this.state.user_profile.first_name}{" "}
+                  {this.state.user_profile.last_name}
+                </td>
               </tr>
               <tr>
                 <th scope="row">Country of Origin</th>
@@ -92,13 +84,15 @@ class Profile extends Component {
               </tr>
             </tbody>
           </table>
-          <button onClick = {this.editProfile} className="btn btn-info"> Edit Profile </button>
+          <button onClick={this.editProfile} className="btn btn-info">
+            {" "}
+            Edit Profile{" "}
+          </button>
         </div>
       );
-    }else {
-      return (<p>Loading data...</p>)
+    } else {
+      return <p>Loading data...</p>;
     }
-
   }
 }
 

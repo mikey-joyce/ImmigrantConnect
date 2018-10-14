@@ -1,13 +1,12 @@
 import React, { Component } from "react";
 
 //routing
-import {Redirect, Link} from 'react-router-dom';
+import { Redirect, Link } from "react-router-dom";
 
 //API
-import ApiInterface from '../Lib/ApiInterface';
+import ApiInterface from "../Lib/ApiInterface";
 
 class EditProfile extends Component {
-
   constructor(props) {
     super(props);
 
@@ -18,129 +17,146 @@ class EditProfile extends Component {
     if (this.props.user_logged_in === false) {
       this.state = {
         valid: false
-      }
-
-    }else {
+      };
+    } else {
       this.state = {
         valid: true,
         user_profile: null
-      }
+      };
 
       this.loadUserProfile();
-
     }
-
-
-
   }
 
   loadUserProfile() {
-
-    ApiInterface.getUserProfile(this.props.user.id).then (function (user_profile) {
-
-      this.setState({
-        ...this.state,
-        user_profile
-      })
-
-    }.bind(this))
-
+    ApiInterface.getUserProfile(this.props.user.id).then(
+      function(user_profile) {
+        this.setState({
+          ...this.state,
+          user_profile
+        });
+      }.bind(this)
+    );
   }
 
   submitProfile() {
+    let { user_profile } = this.state;
 
-      let {user_profile} = this.state;
-
-      ApiInterface.updateUserProfile(user_profile).then (function (user_profile) {
+    ApiInterface.updateUserProfile(user_profile).then(
+      function(user_profile) {
         this.setState({
-            ...this.state,
-            profile_updated: true
+          ...this.state,
+          profile_updated: true
         });
-      }.bind(this));
-
+      }.bind(this)
+    );
   }
 
   handleInputChange(e) {
-    let {user_profile} = this.state;
+    let { user_profile } = this.state;
 
-    let {name, value} = e.target;
+    let { name, value } = e.target;
 
     if (name === "years_in_residence") {
       if (parseInt(value) > 0) {
         user_profile[name] = value;
       }
-    }else {
+    } else {
       user_profile[name] = value;
     }
-
 
     this.setState({
       ...this.state,
       user_profile
-    })
-
+    });
   }
 
   render() {
-
     if (this.state.valid === false) {
-      return (
-        <Redirect to = "/"></Redirect>
-      )
+      return <Redirect to="/" />;
     }
 
     if (this.state.profile_updated === true) {
-      return (
-        <Redirect to = "/profile"></Redirect>
-      )
+      return <Redirect to="/profile" />;
     }
 
     if (this.state.user_profile !== null) {
       return (
-        <div>
+        <div className="EditProfilePage Page">
           <h2 className="display-2">My Profile</h2>
           <table className="table">
             <tbody>
               <tr>
                 <th scope="row">First Name</th>
                 <td>
-                  <input onChange = {this.handleInputChange} type="text" value = {this.state.user_profile.first_name} name="first_name" className="form-control" />
+                  <input
+                    onChange={this.handleInputChange}
+                    type="text"
+                    value={this.state.user_profile.first_name}
+                    name="first_name"
+                    className="form-control"
+                  />
                 </td>
               </tr>
               <tr>
                 <th scope="row">Last Name</th>
                 <td>
-                  <input onChange = {this.handleInputChange} type="text" value = {this.state.user_profile.last_name} name="last_name" className="form-control" />
+                  <input
+                    onChange={this.handleInputChange}
+                    type="text"
+                    value={this.state.user_profile.last_name}
+                    name="last_name"
+                    className="form-control"
+                  />
                 </td>
               </tr>
-
 
               <tr>
                 <th scope="row">Country of Origin</th>
                 <td>
-                  <input onChange = {this.handleInputChange} type="text" value = {this.state.user_profile.country_of_origin} name="country_of_origin" className="form-control" />
+                  <input
+                    onChange={this.handleInputChange}
+                    type="text"
+                    value={this.state.user_profile.country_of_origin}
+                    name="country_of_origin"
+                    className="form-control"
+                  />
                 </td>
               </tr>
 
               <tr>
                 <th scope="row">Tenure in Country</th>
                 <td>
-                  <input onChange = {this.handleInputChange} type="number" value = {this.state.user_profile.years_in_residence} name="years_in_residence" className="form-control" />
+                  <input
+                    onChange={this.handleInputChange}
+                    type="number"
+                    value={this.state.user_profile.years_in_residence}
+                    name="years_in_residence"
+                    className="form-control"
+                  />
                 </td>
               </tr>
               <tr>
                 <th scope="row">Bio</th>
                 <td>
-                  <input onChange = {this.handleInputChange} type="text-area" value = {this.state.user_profile.bio} name ="bio" className="form-control" />
+                  <input
+                    onChange={this.handleInputChange}
+                    type="text-area"
+                    value={this.state.user_profile.bio}
+                    name="bio"
+                    className="form-control"
+                  />
                 </td>
               </tr>
             </tbody>
           </table>
-          <button onClick = {this.submitProfile} className = "btn btn-success">Submit</button>
+          <button onClick={this.submitProfile} className="btn btn-success">
+            Submit
+          </button>
         </div>
       );
     } else {
-      return (<p>Loading data...</p>)
+      return <p>Loading data...</p>;
     }
   }
 }

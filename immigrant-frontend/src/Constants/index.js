@@ -12,4 +12,5 @@ export const TEST = "TEST";
 export const SELECT_COMMUNITY = "SELECT_COMMUNITY";
 
 // User constants
-export const USER_LOGIN = "USER_LOGIN"
+export const USER_LOGIN = "USER_LOGIN";
+export const USER_LOGOUT = "USER_LOGOUT";
