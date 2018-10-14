@@ -5,7 +5,12 @@ from django.utils import timezone
 # Create your models here.
 
 class ImmigrantProfile (models.Model):
-    owner = models.ForeignKey('auth.User', related_name = 'immigrant_profile', on_delete=models.CASCADE)
+
+    owner = models.OneToOneField(
+        'auth.User',
+        on_delete = models.CASCADE
+    )
+    
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
 

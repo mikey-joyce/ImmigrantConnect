@@ -154,9 +154,10 @@ class CommunityPage extends Component {
     return (
       <div>
         <h2 className="display-2">{this.props.selected_community.group_name}</h2>
-        <div className="btn-add-group btn-group">
-          <AddEvent />
-          <AddPost />
+
+        <div className="btn-group btn-add-group" role="group">
+          <AddPost className = "action-btn"/>
+          <AddEvent className = "action-btn"/>
         </div>
 
         <div className = "cards">
