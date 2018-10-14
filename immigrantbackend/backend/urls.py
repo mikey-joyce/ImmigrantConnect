@@ -12,6 +12,7 @@ router.register(r'posts', views.PostViewSet)
 router.register(r'events', views.EventViewSet)
 router.register(r'comments', views.CommentViewSet)
 router.register(r'language_configs', views.LanguageConfigViewSet)
+router.register(r'job_posts', views.JobPostViewSet)
 
 urlpatterns = [
     path('', include(router.urls))
