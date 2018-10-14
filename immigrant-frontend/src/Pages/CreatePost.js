@@ -1,9 +1,37 @@
 import React, { Component } from "react";
 
+//api
+import ApiInterface from '../Lib/ApiInterface'
+
+
+//models
+import models from '../Models';
+
+//shorthand
+let {Post} = models;
+
 class CreatePost extends Component {
 
   constructor(props) {
     super(props);
+
+    if (this.props.community_selected && this.props.user_logged_in) {
+
+      this.state = {
+        valid: true,
+        new_post: new Post(
+          
+        )
+      }
+
+    }else {
+
+      this.state = {
+        valid: false
+      }
+
+    }
+
   }
 
   render() {

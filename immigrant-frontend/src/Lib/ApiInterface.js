@@ -88,7 +88,7 @@ class ApiInterface {
     let events_endpoint = "/events/";
 
     var events_promise = new Promise(function (resolve, reject) {
-      axios.get(endpoint + events_endpoint, Event.parse(event).serialize())
+      axios.post(endpoint + events_endpoint, Event.parse(event).serialize())
         .then (function (response) {
           var raw_event = response.data;
 
@@ -110,7 +110,7 @@ class ApiInterface {
     let posts_endpoint = "/posts/";
 
     var posts_promise = new Promise(function (resolve, reject) {
-      axios.get(endpoint + posts_endpoint, Post.parse(post).serialize())
+      axios.post(endpoint + posts_endpoint, Post.parse(post).serialize())
         .then (function (response) {
           var raw_post = response.data;
 

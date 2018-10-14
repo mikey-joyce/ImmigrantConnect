@@ -22,8 +22,8 @@ import ViewCommunityPage from './Containers/ViewCommunityPageContainer';
 import SignInPage from './Pages/SignIn';
 import ProfilePage from './Containers/ProfilePageContainer';
 import EditProfilePage from './Containers/EditProfilePageContainer';
-import CreatePostPage from './Pages/CreatePost';
-import CreateEventPage from './Pages/CreateEvent';
+import CreatePostPage from './Containers/CreatePostPageContainer';
+import CreateEventPage from './Containers/CreateEventPageContainer';
 
 
 //Redux
