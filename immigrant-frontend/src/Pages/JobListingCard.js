@@ -13,12 +13,18 @@ class JobListingCard extends Component {
       <div>
         <div className="card">
           <div className="card-body">
-            <h5 className="card-title">Job title</h5>
+            <h5 className="card-title">{this.props.jobPost.employer}</h5>
             <p className="card-text" />
-            <p className="card-text">job desc</p>
+            <p className="card-text" />
 
-            <p className="card-text">Phone</p>
-            <p className="card-text">Email</p>
+            <p className="card-text">
+              {this.props.jobPost.description}
+              <br />
+              <br />
+              Phone: {this.props.jobPost.phone}
+              <br />
+              Email: {this.props.jobPost.email}
+            </p>
           </div>
         </div>
         <br />

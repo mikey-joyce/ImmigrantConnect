@@ -131,8 +131,9 @@ class CommunityPage extends Component {
     }
 
     return (
-      <div className="CommunityPage Page">
-        <h2 className="display-2">
+      <div className="CommunityPage Page container-fluid">
+        <br />
+        <h2 className="display-5">
           {this.props.selected_community.group_name}
         </h2>
 

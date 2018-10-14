@@ -1,20 +1,17 @@
 import React, { Component } from "react";
 
 //models
-import models from '../Models';
+import models from "../Models";
 
-let {Post} = models;
+let { Post } = models;
 
 class PostCard extends Component {
-
   constructor(props) {
     super(props);
-
   }
 
   render() {
-
-    let {post} = this.props;
+    let { post } = this.props;
     console.log(post);
 
     return (
@@ -25,6 +22,7 @@ class PostCard extends Component {
             <p className="card-text">{post.text}</p>
           </div>
         </div>
+        <br />
       </div>
     );
   }
