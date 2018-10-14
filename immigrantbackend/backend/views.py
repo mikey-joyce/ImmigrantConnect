@@ -117,6 +117,3 @@ class JobPostViewSet(viewsets.ModelViewSet):
 
 	def perform_create(self, serializer):
 		serializer.save()
-
-
-

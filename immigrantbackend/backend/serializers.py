@@ -63,11 +63,4 @@ class JobPostSerializer(serializers.ModelSerializer):
 
 	class Meta:
 		model = JobPost
-		fields = ('id', 'employer', 'description', 'email', 'phone')
-
-
-
-
-
-
-
+		fields = ('id', 'employer', 'description', 'email', 'phone', 'ad')

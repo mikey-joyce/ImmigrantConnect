@@ -10,7 +10,7 @@ class ImmigrantProfile (models.Model):
         'auth.User',
         on_delete = models.CASCADE
     )
-    
+
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
 
@@ -67,5 +67,5 @@ class JobPost(models.Model):
     employer = models.CharField(max_length=255)
     description = models.TextField()
     email = models.EmailField(max_length=255)
-    phone = models.CharField(max_length=12)
-
+    phone = models.CharField(max_length=20)
+    ad = models.BooleanField(default = False)
