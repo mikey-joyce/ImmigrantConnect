@@ -1,0 +1,32 @@
+[
+  {
+    "language": "ENG",
+    "choice": "English",
+    "translations": {
+      "submit": "Submit",
+      "welcome_message": "",
+      "navbar": [
+        "Home",
+        "Communities",
+        "Profile",
+        "Sign In"
+      ]
+    }
+  },
+  {
+    "language": "ESP",
+    "choice": "Español",
+    "translations": {
+      "submit": "",
+      "welcome_message": ""
+    }
+  },
+  {
+    "language": "BS",
+    "choice": "Bosanski",
+    "translations": {
+      "submit": "",
+      "welcome_message": ""
+    }
+  }
+]

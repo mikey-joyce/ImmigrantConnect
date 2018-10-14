@@ -45,7 +45,7 @@ class DropdownButton extends Component {
             <select value={this.state.langValue}>
               <option value="english">English</option>
               <option value="spanish">Español</option>
-              <option value="bosnian">Bokanski</option>
+              <option value="bosnian">Bosanski</option>
             </select>
           </label>
         </form>
