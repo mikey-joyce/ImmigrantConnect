@@ -18,7 +18,7 @@ import EventCard from "./EventCard";
 import PostCard from "./PostCard";
 
 //routing
-import { Redirect } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 class CommunityPage extends Component {
   constructor(props) {
@@ -136,10 +136,16 @@ class CommunityPage extends Component {
           {this.props.selected_community.group_name}
         </h2>
 
-        <div className="btn-group btn-add-group" role="group">
-          <AddPost className="action-btn" />
-          <AddEvent className="action-btn" />
-        </div>
+        {this.props.user_logged_in && (
+          <div className="btn-group btn-add-group" role="group">
+            <AddPost className="action-btn" />
+            <AddEvent className="action-btn" />
+          </div>
+        )}
+
+        {this.props.user_logged_in === false && (
+          <Link to="/sign-in">Sign In to Contribute to Group</Link>
+        )}
 
         <div className="cards">
           {this.renderEvents()}
